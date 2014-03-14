@@ -35,4 +35,16 @@
 	}
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    MovieData *moviedata = [MovieData sharedManager];
+	if ([_searchTextField.text length] > 0) {
+		[moviedata FindMovie:_searchTextField.text];
+        [self performSegueWithIdentifier:@"SearchPushSegue" sender:self];
+	}
+    
+    return YES;
+}
+
+
 @end

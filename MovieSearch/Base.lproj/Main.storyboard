@@ -24,14 +24,17 @@
                                 </state>
                                 <connections>
                                     <action selector="PresseedSearchButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rwo-FN-S1x"/>
-                                    <segue destination="APg-6V-WrF" kind="push" id="yqZ-zi-46E"/>
+                                    <segue destination="APg-6V-WrF" kind="push" identifier="SearchPushSegue" id="yqZ-zi-46E"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter movie title for search" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fuP-Ke-H4f">
                                 <rect key="frame" x="20" y="96" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="a5m-F0-6ed"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.93064283288043481" green="0.93064283288043481" blue="0.93064283288043481" alpha="1" colorSpace="calibratedRGB"/>

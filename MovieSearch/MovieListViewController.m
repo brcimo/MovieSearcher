@@ -160,7 +160,6 @@
                           @"Cover Flow 2",
                           @"Time Machine",
                           @"Inverted Time Machine",
-                          @"Custom",
                           nil
                           ];
     [alert show];
@@ -184,7 +183,7 @@
 {
     DLog(@"%d", buttonIndex);
     if (buttonIndex == 0) {
-        NSUInteger r = arc4random_uniform(12);
+        NSUInteger r = arc4random_uniform(11);
         self.carousel.type = r;
     } else {
         self.carousel.type = (buttonIndex - 1);
