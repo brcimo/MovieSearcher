@@ -31,7 +31,7 @@
 	[super viewDidLoad];
 	// Do any additional setup after loading the view.
 
-	_carousel.type = iCarouselTypeCoverFlow2;
+	_carousel.type = iCarouselTypeInvertedCylinder;
     
     if ([[MovieData sharedManager].movieArray count] == 0) {
         _noneFoundLabel.hidden = NO;
@@ -64,16 +64,18 @@
 
 	//create new view if no view is available for recycling
 	if (view == nil) {
-		view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 250.0f, 500.0f)];
+		view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 240, 500.0f)];
 		((UIImageView *)view).image = [UIImage imageNamed:@"page.png"];
 		view.contentMode = UIViewContentModeCenter;
 
-		label = [[UILabel alloc] initWithFrame:CGRectMake(30, 270, 250, 20)];
+		label = [[UILabel alloc] initWithFrame:CGRectMake(30, 270, 190, 40)];
 		label.backgroundColor = [UIColor clearColor];
 		label.font = [label.font fontWithSize:12];
+        label.numberOfLines = 2;
+        label.lineBreakMode = NSLineBreakByWordWrapping;
 		label.tag = 1;
 
-		label2 = [[UILabel alloc] initWithFrame:CGRectMake(30, 290, 250, 20)];
+		label2 = [[UILabel alloc] initWithFrame:CGRectMake(30, 310, 190, 20)];
 		label2.backgroundColor = [UIColor clearColor];
 		label2.font = [label.font fontWithSize:12];
 		label2.tag = 2;
@@ -140,4 +142,56 @@
 {
 }
 
+- (IBAction)PressedChangeLayout:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Pick a Style"
+                                               message: @""
+                                              delegate: self
+                                     cancelButtonTitle:  @"Random"
+                                     otherButtonTitles:
+                          @"Linear",
+                          @"Rotary",
+                          @"Inverted Rotary",
+                          @"Cylinder",
+                          @"Inverted Cylinder",
+                          @"Wheel",
+                          @"Inverted Wheel",
+                          @"Cover Flow",
+                          @"Cover Flow 2",
+                          @"Time Machine",
+                          @"Inverted Time Machine",
+                          @"Custom",
+                          nil
+                          ];
+    [alert show];
+    
+}
+/*
+ iCarouselTypeLinear = 0,
+ iCarouselTypeRotary,
+ iCarouselTypeInvertedRotary,
+ iCarouselTypeCylinder,
+ iCarouselTypeInvertedCylinder,
+ iCarouselTypeWheel,
+ iCarouselTypeInvertedWheel,
+ iCarouselTypeCoverFlow,
+ iCarouselTypeCoverFlow2,
+ iCarouselTypeTimeMachine,
+ iCarouselTypeInvertedTimeMachine,
+ iCarouselTypeCustom
+*/
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    DLog(@"%d", buttonIndex);
+    if (buttonIndex == 0) {
+        NSUInteger r = arc4random_uniform(12);
+        self.carousel.type = r;
+    } else {
+        self.carousel.type = (buttonIndex - 1);
+    }
+    [self.carousel reloadData];
+}
+
 @end
+
+

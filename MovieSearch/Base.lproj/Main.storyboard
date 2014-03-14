@@ -75,8 +75,19 @@
                                     <outlet property="delegate" destination="APg-6V-WrF" id="mh1-uJ-JRZ"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9a-cy-gjN">
+                                <rect key="frame" x="196" y="64" width="104" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change Layout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PressedChangeLayout:" destination="APg-6V-WrF" eventType="touchUpInside" id="hy8-5P-mF8"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.027875922510000001" green="0.1427407195" blue="0.2708262568" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bvk-rD-pnu">
                         <barButtonItem key="backBarButtonItem" title="Back" id="WGl-hH-6ru"/>

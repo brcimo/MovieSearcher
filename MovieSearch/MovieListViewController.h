@@ -10,7 +10,7 @@
 #import "iCarousel.h"
 #import "AsyncImageView.h"
 
-@interface MovieListViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
+@interface MovieListViewController : UIViewController <iCarouselDataSource, iCarouselDelegate, UIAlertViewDelegate>
 {
 	NSTimer *timer;
 }
@@ -18,5 +18,7 @@
 @property (nonatomic, strong) IBOutlet iCarousel *carousel;
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UILabel *noneFoundLabel;
+
+- (IBAction)PressedChangeLayout:(id)sender;
 
 @end
