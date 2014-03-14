@@ -25,7 +25,7 @@
 
 - (NSDictionary *)dictFromJSONURL:(NSString *)urlString
 {
-	NSString *link = urlString;
+	NSString *link = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:link] cachePolicy:0 timeoutInterval:5];
 	NSURLResponse *response = nil;
 	NSError *error = nil;
