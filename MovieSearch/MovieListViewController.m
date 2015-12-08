@@ -131,11 +131,11 @@
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
-	NSLog(@"Tapped view number: %d", index);
+	NSLog(@"Tapped view number: %ld", (long)index);
 	MovieData *moviedata = [MovieData sharedManager];
 	moviedata.selectedMovie = index;
 
-	[self performSegueWithIdentifier:@"MoviePlayerSegue" sender:self];
+	[self performSegueWithIdentifier:@"segueDetailView" sender:self];
 }
 
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel
@@ -181,7 +181,7 @@
 */
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    DLog(@"%d", buttonIndex);
+    DLog(@"%ld", (long)buttonIndex);
     if (buttonIndex == 0) {
         NSUInteger r = arc4random_uniform(11);
         self.carousel.type = r;

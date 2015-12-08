@@ -13,11 +13,11 @@
 @interface MovieDetailsViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
-@property (strong, nonatomic) IBOutlet UITextView *description;
 @property (strong, nonatomic) IBOutlet UILabel *price;
 @property (strong, nonatomic) IBOutlet UILabel *releaseDate;
 @property (strong, nonatomic) IBOutlet UILabel *rating;
 @property (strong, nonatomic) IBOutlet UILabel *movieTitle;
+@property (strong, nonatomic) IBOutlet UITextView *description2;
 
 - (IBAction)PressedDone:(id)sender;
 - (IBAction)PressedPlay:(id)sender;

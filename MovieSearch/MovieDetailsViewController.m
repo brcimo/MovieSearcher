@@ -14,15 +14,6 @@
 
 @implementation MovieDetailsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-	if (self) {
-		// Custom initialization
-	}
-	return self;
-}
-
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
@@ -49,7 +40,7 @@
 	self.releaseDate.text = [NSString stringWithFormat:@"Released: %@", dateString];
 
 	self.price.text = [NSString stringWithFormat:@"$%@", [[movieDict objectForKey:@"collectionPrice"] stringValue]];
-	self.description.text = [movieDict objectForKey:@"longDescription"];
+	self.description2.text = [movieDict objectForKey:@"longDescription"];
 
 	self.rating.text = [NSString stringWithFormat:@"Rated: %@", [movieDict objectForKey:@"contentAdvisoryRating"]];
 	self.movieTitle.text = [movieDict objectForKey:@"trackName"];
@@ -77,7 +68,7 @@
 - (IBAction)PressedBuy:(id)sender
 {
 	MovieData *moviedata = [MovieData sharedManager];
-	NSString *movieurl = [[moviedata.movieArray objectAtIndex:moviedata.selectedMovie] objectForKey:@"trackViewUrl"]; //collectionViewUrl isn't shown most times, switched to trackViewUrl
+	NSString *movieurl = [[moviedata.movieArray objectAtIndex:moviedata.selectedMovie] objectForKey:@"trackViewUrl"];
 	DLog(@"%@", movieurl);
 	[movieurl stringByReplacingOccurrencesOfString:@"https" withString:@"itms"];
 	DLog(@"%@", movieurl);
